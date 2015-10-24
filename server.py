@@ -24,7 +24,7 @@ def index():
 	return render_template('index.html')
 
 
-@app.route('/shopping_items.json')
+@app.route('/shopping_item.json')
 def target_items():
 	"""getting items from target API"""
 
