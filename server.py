@@ -14,6 +14,6 @@ def index():
 if __name__ == "__main__":
     app.debug = True
 
-    connect_to_db(app)
+    # connect_to_db(app)
 
     app.run()
