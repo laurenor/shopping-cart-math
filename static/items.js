@@ -54,16 +54,16 @@ function randomSelect(){
 function showItems(data) {
 	console.log(data);
 
-	var level = 2;
+	// var level = 2;
 
 	var priceList = [];
 
-	$("#product-img").empty();
+	$(".items-container").empty();
 
-	for (i=0; i <= level; i++) {
+	for (i=0; i <= LEVEL; i++) {
 		console.log(data[i]);
 
-		var qtyNum = Math.floor((Math.random() * level) + 1);
+		var qtyNum = Math.floor((Math.random() * LEVEL) + 1);
 		var imgLink = data[i].document.img_link;
 		var price = data[i].document.price;
 		var name = data[i].document.name;
@@ -144,6 +144,19 @@ function shuffleArray(possibleAnswers) {
 }
 
 function assignButtonValues(possibleAnswers, totalPrice) {
+	$("#btn1").removeClass("correct-answer");
+	$("#btn1").removeClass("incorrect-answer");
+	
+	$("#btn2").removeClass("correct-answer");
+	$("#btn2").removeClass("incorrect-answer");
+	
+	$("#btn3").removeClass("correct-answer");
+	$("#btn3").removeClass("incorrect-answer");
+	
+	$("#btn4").removeClass("correct-answer");
+	$("#btn4").removeClass("incorrect-answer");
+	
+
 
 	$("#btn1").attr("value", "$"+possibleAnswers[0]);
 	$("#btn2").attr("value", "$"+possibleAnswers[1]);
@@ -193,12 +206,15 @@ function addListenerToCorrect() {
 
 
 function goToNextLevel() {
+	LEVEL++;
+	$('#level-number').text(LEVEL);
+	randomSelect();
 
-	alert("You're awesome");
+	// alert("You're awesome");
 }
 
 function stayOnLevel() {
-	alert("you suck");
+	// alert("you suck");
 }
 
 
