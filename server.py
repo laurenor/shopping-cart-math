@@ -1,6 +1,5 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, jsonify
 from jinja2 import StrictUndefined
-
 import requests
 import pprint
 import json
@@ -24,7 +23,15 @@ def index():
 	return render_template('index.html')
 
 
-@app.route('/shopping_items.json')
+@app.route('/testingpage')
+def testing_page():
+	"""Return test page"""
+
+	return render_template('test.html')
+
+
+
+@app.route('/shopping_item.json')
 def target_items():
 	"""getting items from target API"""
 
@@ -71,7 +78,5 @@ def target_items():
 
 if __name__ == "__main__":
     app.debug = True
-
-    # connect_to_db(app)
 
     app.run()
