@@ -9,9 +9,7 @@ function getProductDescription() {
 
   $.get(url, function (data){
 
-
 		console.log(data);
-
 
 		$("#product-price").text("$" + data.price);
 		$("#product-name").text(data.name);     
@@ -26,8 +24,6 @@ $("#start-button").on("click", randomSelect);
 
 
 function randomSelect(){
-
-	var level = 2;
 
 	$.ajax({
 	url       : 'https://api-us.clusterpoint.com/v4/102232/hackingedu/_query?transaction_id=TID',
@@ -58,17 +54,16 @@ function randomSelect(){
 function showItems(data) {
 	console.log(data);
 
-	var level = 5;
+	var level = 2;
 
 	var priceList = [];
 
 	$("#product-img").empty();
 
-	for (i=0; i < level; i++) {
+	for (i=0; i <= level; i++) {
 		console.log(data[i]);
 
 		var qtyNum = Math.floor((Math.random() * level) + 1);
-
 		var imgLink = data[i].document.img_link;
 		var price = data[i].document.price;
 		var name = data[i].document.name;
@@ -134,7 +129,7 @@ function generateWrongResults(totalPrice) {
 	assignButtonValues(possibleAnswers, totalPrice);
 }
 
-	/**
+/**
  * Randomize array element order in-place.
  * Using Durstenfeld shuffle algorithm.
  */
@@ -169,13 +164,11 @@ function assignButtonValues(possibleAnswers, totalPrice) {
 	addListenerToIncorrect();
 	addListenerToCorrect();
 
-
 }
 
 
 $(".correct-answer").on('click', goToNextLevel);
 $(".incorrect-answer").on('click', stayOnLevel);
-// $("#btn1").on('click', goToNextLevel);
 
 function addListenerToIncorrect() {
 
