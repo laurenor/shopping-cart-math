@@ -54,11 +54,12 @@ a:hover {
 
 #game {
 	display: none;
+	text-align: center;
 }
 
 .game-content {
-	width: 500px;
-	margin: 0 auto;
+	margin: 0;
+	text-align: center;
 }
 
 .product {
@@ -67,10 +68,11 @@ a:hover {
 	margin: 0 auto;
 	padding: 0;
 	margin-top: 50px;
+	display: inline-block;
 }
 
 h1 {
-	font-size: 24px;
+	font-size: 30px;
 	font-weight: 600;
 }
 
@@ -96,6 +98,7 @@ h1 {
 	margin: 15px;
 	font-size: 20px;
 	font-weight: 600;
+	display: block;
 }
 
 td {
@@ -126,4 +129,22 @@ hr {
 	hr {
 		margin-bottom: -30px;
 	}
+}
+
+.items-container {
+	display: block;
+	margin: 10px;
+	left: 0px;
+	right: 0px;
+	top: 250px;
+
+}
+
+.choices-container {
+	display: inline-block;
+}
+
+
+.product {
+	display: inline-block;
 }

@@ -9,9 +9,7 @@ function getProductDescription() {
 
   $.get(url, function (data){
 
-
 		console.log(data);
-
 
 		$("#product-price").text("$" + data.price);
 		$("#product-name").text(data.name);     
@@ -26,8 +24,6 @@ $("#start-button").on("click", randomSelect);
 
 
 function randomSelect(){
-
-	var level = 2;
 
 	$.ajax({
 	url       : 'https://api-us.clusterpoint.com/v4/102232/hackingedu/_query?transaction_id=TID',
@@ -58,17 +54,16 @@ function randomSelect(){
 function showItems(data) {
 	console.log(data);
 
-	var level = 2;
+	// var level = 2;
 
 	var priceList = [];
 
-	$("#product-img").empty();
+	$(".items-container").empty();
 
-	for (i=0; i < level; i++) {
+	for (i=0; i <= LEVEL; i++) {
 		console.log(data[i]);
 
-		var qtyNum = Math.floor((Math.random() * level) + 1);
-
+		var qtyNum = Math.floor((Math.random() * LEVEL) + 1);
 		var imgLink = data[i].document.img_link;
 		var price = data[i].document.price;
 		var name = data[i].document.name;
@@ -76,8 +71,8 @@ function showItems(data) {
 
 		priceList.push(price * qtyNum);
 
-		$("#product-img").append("<td><div class='product'><a href='" + targetLink + "' target='_blank'><img src='" + imgLink + "' class='product-photo'></a></div></td>");
-		$("#product-price").append("<td><p>Price: $" + price + "<br>Qty: " + qtyNum + "</p></td>");
+		$(".items-container").append("<div class='product'><a href='" + targetLink + "' target='_blank'><img src='" + imgLink + "' class='product-photo'></a><p>Price: $" + price + "<br>Qty: " + qtyNum + "</p></div>");
+
 
 	}
 
@@ -134,7 +129,7 @@ function generateWrongResults(totalPrice) {
 	assignButtonValues(possibleAnswers, totalPrice);
 }
 
-	/**
+/**
  * Randomize array element order in-place.
  * Using Durstenfeld shuffle algorithm.
  */
@@ -149,6 +144,19 @@ function shuffleArray(possibleAnswers) {
 }
 
 function assignButtonValues(possibleAnswers, totalPrice) {
+	$("#btn1").removeClass("correct-answer");
+	$("#btn1").removeClass("incorrect-answer");
+	
+	$("#btn2").removeClass("correct-answer");
+	$("#btn2").removeClass("incorrect-answer");
+	
+	$("#btn3").removeClass("correct-answer");
+	$("#btn3").removeClass("incorrect-answer");
+	
+	$("#btn4").removeClass("correct-answer");
+	$("#btn4").removeClass("incorrect-answer");
+	
+
 
 	$("#btn1").attr("value", "$"+possibleAnswers[0]);
 	$("#btn2").attr("value", "$"+possibleAnswers[1]);
@@ -165,19 +173,48 @@ function assignButtonValues(possibleAnswers, totalPrice) {
 			$("#btn"+(i+1)+"").addClass("incorrect-answer");
 		}
 	}
+
+	addListenerToIncorrect();
+	addListenerToCorrect();
+
 }
 
 
-$('.correct-answer').on('click', goToNextLevel);
-$('.incorrect-answer').on('click', stayOnLevel);
+$(".correct-answer").on('click', goToNextLevel);
+$(".incorrect-answer").on('click', stayOnLevel);
+
+function addListenerToIncorrect() {
+
+	var incorrectAnswers = document.getElementsByClassName("incorrect-answer");
+
+	for (var i= 0; i < incorrectAnswers.length; i++) {
+		console.log(incorrectAnswers[i]);
+		incorrectAnswers[i].addEventListener('click', stayOnLevel, false);
+		};
+}
+
+function addListenerToCorrect() {
+
+	var correctAnswer = document.getElementsByClassName("correct-answer");
+	console.log(typeof correctAnswer);
+	for (var i= 0; i < correctAnswer.length; i++) {
+		console.log(correctAnswer[i]);
+		correctAnswer[i].addEventListener('click',goToNextLevel,false);
+	};
+}
+	
 
 
 function goToNextLevel() {
-	alert("You're awesome");
+	LEVEL++;
+	$('#level-number').text(LEVEL);
+	randomSelect();
+
+	// alert("You're awesome");
 }
 
 function stayOnLevel() {
-	alert("you suck");
+	// alert("you suck");
 }
 
 
