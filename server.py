@@ -44,13 +44,13 @@ shopping_items = {"Graphing Calculator": "033317192120",
 def index():
 	"""Return index page"""
 
-	list_of_rand_num = []
-	for i in range(LEVEL+1):
-		list_of_rand_num.append(random.randint(0,20))
+	# list_of_rand_num = []
+	# for i in range(LEVEL+1):
+	# 	list_of_rand_num.append(random.randint(0,20))
 
-	for num in list_of_rand_num:
+	# for num in list_of_rand_num:
 
-		query = ProductInfo.query.get(num)
+	# 	query = ProductInfo.query.get(num)
 
 
 

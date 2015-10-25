@@ -40,25 +40,9 @@
 				<hr>
 				<div class="game-content">
 					<table>
-						<tr>
-							<td>
-								<div class="product">
-									<img src="static/img/tsum.jpg" class="product-photo">
-								</div>
-							</td>
-							<td>
-								<div class="product">
-									<img src="static/img/pika.jpg" class="product-photo">
-								</div>
-							</td>
+						<tr id="product-img">
 						</tr>
-						<tr>
-							<td>
-								<p>Price: $12.95<br>Qty: 2</p>
-							</td>
-							<td>
-								<p>Price: $12.00<br>Qty: 2</p>
-							</td>
+						<tr id="product-price">
 						</tr>
 					</table>
 					<table>
@@ -81,10 +65,12 @@
 		</div>
 
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="static/items.js"></script>
 		<script src="static/js/sketch.min.js"></script>
 		<script>
 			$('#start-button').on('click', hideStart);
 			$('#start-button').on('click', showGame);
+
 			function hideStart() {
 				$('#start-page').hide();
 			}

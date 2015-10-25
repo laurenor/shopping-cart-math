@@ -16,7 +16,7 @@ function getProductDescription() {
   })
 }
 
-$("#get-item").on("click", randomSelect);
+$("#start-button").on("click", randomSelect);
 
 
 
@@ -53,21 +53,64 @@ function randomSelect(){
 function showItems(data) {
 	console.log(data);
 
-	var level = 3;
+	var level = 5;
+
+	var priceList = [];
 
 	$("#product-img").empty();
-	
+
 	for (i=0; i < level; i++) {
-		console.log(data[i])
+		console.log(data[i]);
+
+		var qtyNum = Math.random(1, level);
 
 		var imgLink = data[i].document.img_link;
 		var price = data[i].document.price;
 		var name = data[i].document.name;
 		var targetLink = data[i].document.link;
 
+		priceList.push(price);
 
-		$("#product-img").append("<a href='" + targetLink + "' target='_blank'><img src='" + imgLink + "'></a><p>" + name + "</p><p>" + price + "</p>");
-
+		$("#product-img").append("<td><div class='product'><a href='" + targetLink + "' target='_blank'><img src='" + imgLink + "' class='product-photo'></a></div></td>");
+		$("#product-price").append("<td><p>Price: $" + price + "<br>Qty: " + qtyNum + "</p></td>");
 
 	}
+
+	calculateTotal(priceList);
 }
+
+
+function calculateTotal(priceList) {
+	console.log(priceList);
+
+	var totalPrice = 0
+
+	for (i=0; i < priceList.length; i++) {
+		totalPrice += parseInt(priceList[i]);
+
+	}
+
+	generateWrongResults(totalPrice);
+}
+
+function generateWrongResults(totalPrice) {
+	var wrongAnswer = new Set([]);
+
+	var answer = 4;
+
+	while (wrongAnswer.length < answer) {
+		var dec = Math.random();
+		console.log("DEC: " + dec);
+
+		var randInt = Math.random(0,answer);
+		rs = (totalPrice+randInt+dec).toFixed(2);
+		console.log("RS: " + rs);
+
+		wrongAnswer.push(rs);
+		console.log("WRONG ANSWERS LIST: " + wrongAnswer);
+	}
+}
+
+
+
+
