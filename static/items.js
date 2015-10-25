@@ -2,18 +2,18 @@ function getProductDescription() {
 
   var url = "/shopping_item.json"
 
-  $.get(url, function (results){
+  $.get(url, function (data){
 
-  		var data = JSON.parse(results);
 
 		console.log(data);
 
-		$("#product-price").text(data.song_name);
-		// $("#song-artist").text(" by " + data.artist + " [" + data.genre + "]");     
-		// $("#song-spotify").html("<a href='" + data.spotify + "'>Play on Spotify</a>")  ;   
 
+		$("#product-price").text("$" + data.price);
+		$("#product-name").text(data.name);     
+		$("#product-link").html("<a href='" + data.link + "'>View on Target.com</a>")  ;   
+		$("#product-img").html("<img src='" + data.img_link + "' target='_blank'>")  ;   
 
   })
 }
 
-$("#get-item").on("click", getProductDescription)
+$("#get-item").on("click", getProductDescription);
