@@ -1,6 +1,8 @@
 from model import ProductInfo, connect_to_db, db
 from flask import Flask, render_template, redirect, request, jsonify
 from jinja2 import StrictUndefined
+
+import gamescript
 import requests
 import pprint
 import json
@@ -12,6 +14,8 @@ target_key = os.environ["TARGET_KEY"]
 
 app.secret_key = 'ABC'
 app.jinja_env.undefined = StrictUndefined
+
+LEVEL = 1
 
 shopping_item_list = ["Graphing Calculator", "Backpack"]
 
@@ -39,16 +43,14 @@ shopping_items = {"Graphing Calculator": "033317192120",
 @app.route('/')
 def index():
 	"""Return index page"""
-	l = [1,3,6,7]
-	d = {}
-	for i in l:
-		
+
 	return render_template('index.html')
 
 
 @app.route('/testingpage')
 def testing_page():
 	"""Return test page"""
+
 
 	return render_template('test.html')
 
