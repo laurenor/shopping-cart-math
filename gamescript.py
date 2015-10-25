@@ -16,23 +16,21 @@ def random_select(level,items):
     selection = []
     keys = random.sample(items.keys(),level+1)
 
-    # for i in range(level+1):
     for key in keys:
 
-        # key = random.choice(items.keys())
         value = items[key]
         quantity = random.randint(1,level)
         selection.append((key,value,quantity))
-        #MAKE IT DOESN'T PICK THE SAME ITEM.
         # print i, key, value
-
-
 
     return selection
 
 
 def add_values(selection):
-    '''Adds values in selection list'''
+    '''Adds values in selection list
+    generates correct answers
+
+    '''
     add = 0
     for i in selection:
         print i[0],i[1],i[2]
@@ -66,6 +64,7 @@ def generate_wrong_results(correct_result, answers):
 
 
     print 'incorrect', incorrect
+    return incorrect
 
 
 
