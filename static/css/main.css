@@ -67,6 +67,7 @@ a:hover {
 	margin: 0 auto;
 	padding: 0;
 	margin-top: 50px;
+	display: inline-block;
 }
 
 h1 {
@@ -126,4 +127,9 @@ hr {
 	hr {
 		margin-bottom: -30px;
 	}
+}
+
+.items-container {
+	margin: 10px;
+	
 }

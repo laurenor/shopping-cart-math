@@ -58,7 +58,7 @@ function randomSelect(){
 function showItems(data) {
 	console.log(data);
 
-	var level = 2;
+	var level = 5;
 
 	var priceList = [];
 
@@ -76,8 +76,8 @@ function showItems(data) {
 
 		priceList.push(price * qtyNum);
 
-		$("#product-img").append("<td><div class='product'><a href='" + targetLink + "' target='_blank'><img src='" + imgLink + "' class='product-photo'></a></div></td>");
-		$("#product-price").append("<td><p>Price: $" + price + "<br>Qty: " + qtyNum + "</p></td>");
+		$(".items-container").append("<div class='product'><a href='" + targetLink + "' target='_blank'><img src='" + imgLink + "' class='product-photo'></a><p>Price: $" + price + "<br>Qty: " + qtyNum + "</p></div>");
+
 
 	}
 
