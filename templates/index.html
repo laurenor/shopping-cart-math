@@ -4,7 +4,8 @@
 		<title>Shopping Cart Math</title>
 		<link rel='stylesheet'href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-		<link rel='stylesheet' href='/static/css/main.css'>
+		<link rel='stylesheet' href='static/css/main.css'>
+		<link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
 	</head>
 	<body>
 		<nav class="navbar navbar-default navbar-fixed-top">
@@ -37,40 +38,46 @@
 			<div id="game">
 				<h1>Calculate the subtotal</h1>
 				<hr>
-				<div class="row">
-					<div class=" col-sm-1 col-md-1 col-lg-1"></div>
-					<div class="col-sm-5 col-md-5 col-lg-5">
-						<div class="product">
-							<img src="static/img/tsum.jpg" class="product-photo">
-						<p>Price: $12.95<br>Qty: 2</p>
-						</div>
-					</div>
-					<div class="col-sm-5 col-md-5 col-lg-5">
-						<div class="product">
-							<img src="static/img/pika.jpg" class="product-photo">
-						<p>Price: $12.00<br>Qty: 2</p>
-						</div>
-					</div>
-					<div class="col-sm-1 col-md-1 col-lg-1"></div>
+				<div class="game-content">
+					<table>
+						<tr>
+							<td>
+								<div class="product">
+									<img src="static/img/tsum.jpg" class="product-photo">
+								</div>
+							</td>
+							<td>
+								<div class="product">
+									<img src="static/img/pika.jpg" class="product-photo">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>Price: $12.95<br>Qty: 2</p>
+							</td>
+							<td>
+								<p>Price: $12.00<br>Qty: 2</p>
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td><input class="choice-button" type="button" href="#" value="selection"></td>
+							<td><input class="choice-button" type="button" href="#" value="selection"></td>
+						</tr>
+						<tr>
+							<td><input class="choice-button" type="button" href="#" value="selection"></td>
+							<td><input class="choice-button" type="button" href="#" value="selection"></td>
+						</tr>
+					</table>
 				</div>
-				<div class="row">
-					<div class="col-sm-3 col-md-3 col-lg-3"></div>
-					<div class="col-sm-6 col-md-6 col-lg-6">
-						<input class="choice-button" type="button" href="#" value="selection">
-						<input class="choice-button" type="button" href="#" value="selection">
-					<div class="col-sm-3 col-md-3 col-lg-3"></div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3 col-md-3 col-lg-3"></div>
-					<div class="col-sm-6 col-md-6 col-lg-6">
-						<input class="choice-button" type="button" href="#" value="selection">
-						<input class="choice-button" type="button" href="#" value="selection">
-					<div class="col-sm-3 col-md-3 col-lg-3"></div>
-				</div>
-
-
 				<br>
-				<h1>Scratchpad</h1>
+				<div class="game-content">
+					<h1>Scratchpad</h1>
+					<div id="scratchpad">
+					</div>
+				</div>
 			</div>
 		</div>
 
