@@ -1,3 +1,8 @@
+var SCORE = 0
+
+var LEVEL = 1
+
+
 function getProductDescription() {
 
   var url = "/shopping_item.json"
@@ -53,7 +58,7 @@ function randomSelect(){
 function showItems(data) {
 	console.log(data);
 
-	var level = 5;
+	var level = 2;
 
 	var priceList = [];
 
@@ -62,14 +67,14 @@ function showItems(data) {
 	for (i=0; i < level; i++) {
 		console.log(data[i]);
 
-		var qtyNum = Math.random(1, level);
+		var qtyNum = Math.floor((Math.random() * level) + 1);
 
 		var imgLink = data[i].document.img_link;
 		var price = data[i].document.price;
 		var name = data[i].document.name;
 		var targetLink = data[i].document.link;
 
-		priceList.push(price);
+		priceList.push(price * qtyNum);
 
 		$("#product-img").append("<td><div class='product'><a href='" + targetLink + "' target='_blank'><img src='" + imgLink + "' class='product-photo'></a></div></td>");
 		$("#product-price").append("<td><p>Price: $" + price + "<br>Qty: " + qtyNum + "</p></td>");
@@ -86,30 +91,98 @@ function calculateTotal(priceList) {
 	var totalPrice = 0
 
 	for (i=0; i < priceList.length; i++) {
-		totalPrice += parseInt(priceList[i]);
+		console.log("calculating total");
+		totalPrice += parseFloat(priceList[i]);
 
 	}
+
+	totalPrice = totalPrice.toFixed(2);
+	console.log("total price: " + totalPrice);
 
 	generateWrongResults(totalPrice);
 }
 
 function generateWrongResults(totalPrice) {
-	var wrongAnswer = new Set([]);
+	console.log("generating wrong results");
+	var possibleAnswers = [];
+	possibleAnswers.push(totalPrice)
 
+	console.log(possibleAnswers);
+	console.log(typeof possibleAnswers);
+	var count = 1
 	var answer = 4;
 
-	while (wrongAnswer.length < answer) {
+	while (count < answer) {
+		console.log("CURRENT COUNT: " + count);
 		var dec = Math.random();
 		console.log("DEC: " + dec);
 
 		var randInt = Math.random(0,answer);
-		rs = (totalPrice+randInt+dec).toFixed(2);
+		rs = (parseFloat(totalPrice)+parseFloat(randInt)+parseFloat(dec));
+		rs = rs.toFixed(2);
 		console.log("RS: " + rs);
 
-		wrongAnswer.push(rs);
-		console.log("WRONG ANSWERS LIST: " + wrongAnswer);
+		possibleAnswers.push(rs);
+		console.log("WRONG ANSWERS LIST: " + possibleAnswers);
+		count++;
+	};
+
+	console.log(possibleAnswers);
+	possibleAnswers = shuffleArray(possibleAnswers);	
+	console.log(possibleAnswers);
+
+	assignButtonValues(possibleAnswers, totalPrice);
+}
+
+	/**
+ * Randomize array element order in-place.
+ * Using Durstenfeld shuffle algorithm.
+ */
+function shuffleArray(possibleAnswers) {
+    for (var i = possibleAnswers.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = possibleAnswers[i];
+        possibleAnswers[i] = possibleAnswers[j];
+        possibleAnswers[j] = temp;
+    }
+    return possibleAnswers;
+}
+
+function assignButtonValues(possibleAnswers, totalPrice) {
+
+	$("#btn1").attr("value", "$"+possibleAnswers[0]);
+	$("#btn2").attr("value", "$"+possibleAnswers[1]);
+	$("#btn3").attr("value", "$"+possibleAnswers[2]);
+	$("#btn4").attr("value", "$"+possibleAnswers[3]);
+
+	for (i=0; i < possibleAnswers.length; i++) {
+
+		if (possibleAnswers[i] === totalPrice) {
+			console.log("I've assigned a correct class");
+
+			$("#btn"+(i+1)+"").addClass("correct-answer");
+		} else {
+			$("#btn"+(i+1)+"").addClass("incorrect-answer");
+		}
 	}
 }
+
+
+$('.correct-answer').on('click', goToNextLevel);
+$('.incorrect-answer').on('click', stayOnLevel);
+
+
+function goToNextLevel() {
+	alert("You're awesome");
+}
+
+function stayOnLevel() {
+	alert("you suck");
+}
+
+
+
+
 
 
 
