@@ -24,8 +24,6 @@ function randomSelect(){
 
 	var level = 2;
 
-
-
 	$.ajax({
 	url       : 'https://api-us.clusterpoint.com/v4/102232/hackingedu/_query?transaction_id=TID',
 	type      : 'POST',
@@ -38,8 +36,9 @@ function randomSelect(){
 		if (typeof success != 'undefined') {
 			success(data);
 
-			console.log(data);
 		}
+			console.log(data.results);
+			showItems(data.results);
 	},
 	fail      : function (data) {
 		alert(data.error);
@@ -48,4 +47,27 @@ function randomSelect(){
 		}
 	}
 });
+}
+
+
+function showItems(data) {
+	console.log(data);
+
+	var level = 3;
+
+	$("#product-img").empty();
+	
+	for (i=0; i < level; i++) {
+		console.log(data[i])
+
+		var imgLink = data[i].document.img_link;
+		var price = data[i].document.price;
+		var name = data[i].document.name;
+		var targetLink = data[i].document.link;
+
+
+		$("#product-img").append("<a href='" + targetLink + "' target='_blank'><img src='" + imgLink + "'></a><p>" + name + "</p><p>" + price + "</p>");
+
+
+	}
 }
