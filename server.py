@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, request, jsonify
 from jinja2 import StrictUndefined
-
 import requests
 import pprint
 import json

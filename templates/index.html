@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Shopping Cart Math</title>
@@ -26,7 +26,30 @@
 	        </div>
 	      </div>
 		</nav>
+		<center>
+			<div id="start-page">
+				<img src="static/img/logo.png" id="logo">
+				<br>
+				<input id="start-button" type="button" href="#" value="START">
+			</div>
+		</center>
+		<div id="game">
+			PIKACHU!
+		</div>
 
-		<img src="static/img/logo.png" id="logo">
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script>
+			$('#start-button').on('click', hideStart);
+			$('#start-button').on('click', showGame);
+
+			function hideStart() {
+				$('#start-page').hide();
+			}
+
+			function showGame() {
+				$('#game').show();
+			}
+		</script>
 	</body>
+ 
 </html>

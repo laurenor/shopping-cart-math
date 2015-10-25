@@ -25,7 +25,23 @@ p {
 }
 
 #logo {
-	text-align: center;
-	min-width: 200px;
 	margin: 0 auto;
+	margin-bottom: 50px;
+}
+
+#start-button {
+	border-radius: 10px;
+	background-color: #e51836;
+	color: #fff;
+	padding: 10px;
+	width: 200px;
+	height: 50px;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+#game {
+	display: none;
 }
