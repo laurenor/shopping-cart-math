@@ -1,8 +1,10 @@
 import random
+from decimal import *
 
-items =  {'bluepen': 5.0, 'waterbottle': 2.0,'notebook':10.0,'eraser':30.0,'bobba':15.0,'lego':1.0,'tsum_tsum':10.0,'baseballbat':4.0,'stich_pillow':3.0,'chocolate':20.0,'soymilk':7.0,'susan':10.0,'andrew':3.0,'paola':25.0}
+
+items =  {'bluepen': 5.35, 'waterbottle': 2.35,'notebook':10.46,'eraser':30.94,'bobba':15.12,'lego':1.94,'tsum_tsum':10.05,'baseballbat':4.45,'stich_pillow':3.12,'chocolate':20.52,'soymilk':7.25,'susan':10.75,'andrew':3.32,'paola':25.01}
 levels = 10
-current_level = 1 #takes 2 items , shows only one item of each. quantity == level
+current_level = 10 #takes 2 items , shows only one item of each. quantity == level
 num_answers = 4 # number of results show. 
 
 
@@ -12,7 +14,7 @@ def random_select(level,items):
     '''
 
     selection = []
-    keys = random.sample(items.keys(),2)
+    keys = random.sample(items.keys(),level+1)
 
     # for i in range(level+1):
     for key in keys:
@@ -34,7 +36,8 @@ def add_values(selection):
     add = 0
     for i in selection:
         print i[0],i[1],i[2]
-        add = add + i[1]
+        val = i[1] * i[2]
+        add = add + val
     print 'total',add
 
     return add
@@ -47,9 +50,22 @@ def generate_wrong_results(correct_result, answers):
 
     '''
 
-    for i in range(answers-1): 
-        div = correct_result/2
-        print 'div',div
+
+
+    incorrect = set()
+    # for i in range(answers-1): 
+    incorrect.add(round(correct_result,2))
+
+
+    while len(incorrect)<answers:
+        dec = random.random()
+        print dec
+        rand = random.randint(1,answers)
+        rs = round(correct_result+rand+dec,2)
+        incorrect.add(rs)
+
+
+    print 'incorrect', incorrect
 
 
 
