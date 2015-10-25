@@ -5,6 +5,20 @@ import os
 
 db = SQLAlchemy()
 
+###########REMEMBER TO RUN POSTGRESQL ON CONSOLE FOR WINDOWS #########
+
+#psql -h localhost -U postgres
+################
+#TO DROP ALL TABLES USE:
+#psql -h localhost -U postgres < droptable.script
+
+#db.create_all()
+#quit - go to server.py
+#python server.py 
+#localhost:5000/testingpage [click button] DONE
+
+##############################################################################
+
 
 class ProductInfo(db.Model):
 	"""database for target items."""

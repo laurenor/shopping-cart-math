@@ -39,6 +39,10 @@ shopping_items = {"Graphing Calculator": "033317192120",
 @app.route('/')
 def index():
 	"""Return index page"""
+	l = [1,3,6,7]
+	d = {}
+	for i in l:
+		
 	return render_template('index.html')
 
 
@@ -101,6 +105,24 @@ def target_items():
 
 	return jsonify(img_link=product_image, price=product_price, link=product_link, name=product_name)
 
+
+
+
+'''
+************************************
+*********WORK ROUTES
+************************************
+'''
+
+
+
+@app.route('/new_game')
+def create_new_game():
+	pass
+
+@app.route('/process_results', methods=['POST'])
+def results():
+	pass
 
 if __name__ == "__main__":
     app.debug = True
