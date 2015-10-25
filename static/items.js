@@ -165,14 +165,42 @@ function assignButtonValues(possibleAnswers, totalPrice) {
 			$("#btn"+(i+1)+"").addClass("incorrect-answer");
 		}
 	}
+
+	addListenerToIncorrect();
+	addListenerToCorrect();
+
+
 }
 
 
-$('.correct-answer').on('click', goToNextLevel);
-$('.incorrect-answer').on('click', stayOnLevel);
+$(".correct-answer").on('click', goToNextLevel);
+$(".incorrect-answer").on('click', stayOnLevel);
+// $("#btn1").on('click', goToNextLevel);
+
+function addListenerToIncorrect() {
+
+	var incorrectAnswers = document.getElementsByClassName("incorrect-answer");
+
+	for (var i= 0; i < incorrectAnswers.length; i++) {
+		console.log(incorrectAnswers[i]);
+		incorrectAnswers[i].addEventListener('click', stayOnLevel, false);
+		};
+}
+
+function addListenerToCorrect() {
+
+	var correctAnswer = document.getElementsByClassName("correct-answer");
+	console.log(typeof correctAnswer);
+	for (var i= 0; i < correctAnswer.length; i++) {
+		console.log(correctAnswer[i]);
+		correctAnswer[i].addEventListener('click',goToNextLevel,false);
+	};
+}
+	
 
 
 function goToNextLevel() {
+
 	alert("You're awesome");
 }
 
