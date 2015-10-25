@@ -21,8 +21,16 @@ p {
 	color: white;
 }
 
+.navbar-default .navbar-brand:hover{
+	color:white;
+}
+
 .navbar-default .navbar-nav>li>a {
 	color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color:white;
 }
 
 #logo {
@@ -94,15 +102,24 @@ td {
 	padding-right: 15px;
 }
 
-table {
-	margin-bottom: 20px;
+table:nth-child(2) {
+	margin-bottom: 30px;
 }
 
-#scratchpad {
-	width: 500px;
-	height: 300px;
+#simple_sketch {
 	border: 1px solid #ccc;
 	margin-bottom: 50px;
+}
+
+.show-work {
+	color: #6e6e6e;
+	font-weight: 300;
+	font-style: italic;
+	font-size: 14px;
+}
+
+hr {
+	margin-top: 0;
 }
 
 @media screen and (min-width: 480px) {

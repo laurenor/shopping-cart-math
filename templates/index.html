@@ -22,7 +22,7 @@
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
 	      
-	            <li><a href="#">Record Board</a></li>
+	            <li><a href="#"><img src="static/img/target-logo.png" height="25"></a></li>
 	          </ul>
 	        </div>
 	      </div>
@@ -72,16 +72,16 @@
 						</tr>
 					</table>
 				</div>
-				<br>
 				<div class="game-content">
-					<h1>Scratchpad</h1>
-					<div id="scratchpad">
+					<h1>Scratchpad <span class="show-work">- Show your work!</span></h1>
+					<canvas id="simple_sketch" width="500" height="300"></canvas>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="static/js/sketch.min.js"></script>
 		<script>
 			$('#start-button').on('click', hideStart);
 			$('#start-button').on('click', showGame);
@@ -92,6 +92,11 @@
 			function showGame() {
 				$('#game').show();
 			}
+		</script>
+		<script type="text/javascript">
+		  $(function() {
+		    $('#simple_sketch').sketch();
+		  });
 		</script>
 	</body>
   </body>
