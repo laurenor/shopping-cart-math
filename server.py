@@ -23,6 +23,14 @@ def index():
 	return render_template('index.html')
 
 
+@app.route('/testingpage')
+def testing_page():
+	"""Return test page"""
+
+	return render_template('test.html')
+
+
+
 @app.route('/shopping_item.json')
 def target_items():
 	"""getting items from target API"""
