@@ -157,6 +157,13 @@ function assignButtonValues(possibleAnswers, totalPrice) {
 	$("#btn4").removeClass("incorrect-answer");
 	
 
+	var allAnswers = document.getElementsByClassName("choice-button");
+
+	for (var i= 0; i < allAnswers.length; i++) {
+		console.log(allAnswers[i]);
+		allAnswers[i].removeEventListener('click', goToNextLevel, false);
+		};
+
 
 	$("#btn1").attr("value", "$"+possibleAnswers[0]);
 	$("#btn2").attr("value", "$"+possibleAnswers[1]);
@@ -167,7 +174,6 @@ function assignButtonValues(possibleAnswers, totalPrice) {
 
 		if (possibleAnswers[i] === totalPrice) {
 			console.log("I've assigned a correct class");
-
 			$("#btn"+(i+1)+"").addClass("correct-answer");
 		} else {
 			$("#btn"+(i+1)+"").addClass("incorrect-answer");
@@ -209,6 +215,10 @@ function goToNextLevel() {
 	LEVEL++;
 	$('#level-number').text(LEVEL);
 	randomSelect();
+	if (LEVEL > 5) {
+		$('#contents').empty();
+		$('#contents').html("<center><div class='congrats'>Congratulations! Go math!</div><br><img src='static/img/logo.png'></center>");
+	}
 
 	// alert("You're awesome");
 }
