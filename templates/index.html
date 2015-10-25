@@ -60,6 +60,7 @@
 				<div class="game-content">
 					<h1>Scratchpad <span class="show-work">- Show your work!</span></h1>
 					<canvas id="simple_sketch" width="500" height="300"></canvas>
+					<a href="#_" id="myClearButton">Clear</a>
 					</div>
 				</div>
 			</div>
@@ -69,6 +70,12 @@
 		<script src="static/items.js"></script>
 		<script src="static/js/sketch.min.js"></script>
 		<script>
+
+			$("#myClearButton").click(function(){
+				 var canvas = document.getElementById('simple_sketch');  
+				 canvas.getContext('2d').clearRect(0,0,1920,2000);
+				 $('#simple_sketch').sketch('actions',[]);
+			});
 			$('#start-button').on('click', hideStart);
 			$('#start-button').on('click', showGame);
 
