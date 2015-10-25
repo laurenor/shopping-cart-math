@@ -148,3 +148,11 @@ hr {
 .product {
 	display: inline-block;
 }
+
+.congrats {
+	margin-top: 60px;
+	margin-bottom: 30px;
+	font-size: 30px;
+	color: #e51836;
+	font-weight: 600;
+}
