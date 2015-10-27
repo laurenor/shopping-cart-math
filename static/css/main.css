@@ -4,6 +4,7 @@ body {
 	font-weight: 300;
 	color: #e51836;
 	margin-top: 60px;
+	margin-bottom: 50px;
 }
 
 p {
@@ -119,7 +120,9 @@ table:nth-child(2) {
 
 #simple_sketch {
 	border: 1px solid #ccc;
-	margin-bottom: 50px;
+	width: 100%;
+	max-width: 500px;
+	min-height: 300px;
 }
 
 .show-work {
@@ -163,4 +166,18 @@ hr {
 	font-size: 30px;
 	color: #e51836;
 	font-weight: 600;
+}
+
+#myClearButton {
+	float: right;
+}
+
+#canvas-elements {
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: transparent;
 }

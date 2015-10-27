@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<title>Shopping Cart Math</title>
-		<link rel='stylesheet'href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-		<link rel='stylesheet' href='static/css/main.css'>
+		<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" >
+		<link rel="stylesheet" href="static/css/main.css">
 		<link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
 	</head>
 	<body>
@@ -13,9 +13,7 @@
 	        <div class="navbar-header">
 	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
+	            <a href="#"><img src="static/img/target-logo.png" height="25"></a>
 	          </button>
 	          <a class="navbar-brand" href="/">Shopping Cart Math +-x=</a>
 	        </div>
@@ -41,11 +39,7 @@
 				<h2>Level <span id="level-number">1</span></h2>
 				<hr>
 				<div class="game-content">
-
-					<div class="container-fluid items-container">
-
-					</div>
-
+					<div class="container-fluid items-container"></div>
 					<div class="choices-container">
 						<input class="choice-button" type="button" href="#" id="btn1" value="---">
 						<input class="choice-button" type="button" href="#" id="btn2" value="---">
@@ -54,23 +48,22 @@
 						<input class="choice-button" type="button" href="#" id="btn3" value="---">
 						<input class="choice-button" type="button" href="#" id="btn4" value="---">
 					</div>
-
-
 				</div>
 				<div class="game-content">
 					<h1>Scratchpad <span class="show-work">- Show your work!</span></h1>
-					<canvas id="simple_sketch" width="500" height="300"></canvas>
-					<a href="#_" id="myClearButton">Clear</a>
+					<div id="canvas-elements">
+						<canvas id="simple_sketch"></canvas>
+						<br><a href="#_" id="myClearButton">Clear</a>
 					</div>
 				</div>
 			</div>
 		</div>
+		</div>
 
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="static/items.js"></script>
+		<script src="static/js/items.js"></script>
 		<script src="static/js/sketch.min.js"></script>
 		<script>
-
 			$("#myClearButton").click(function(){
 				 var canvas = document.getElementById('simple_sketch');  
 				 canvas.getContext('2d').clearRect(0,0,1920,2000);
