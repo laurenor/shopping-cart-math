@@ -1,5 +1,7 @@
-Shopping Cart Math
-===
+# Shopping Cart Math
+
+### Now deployed on Heroku: [Shopping Cart Math](http://shoppingcartmath.herokuapp.com/)
+
 A math game targeted towards children / young students using products from Target.com.
 
 Winner of "Most Creative Use of Target APIs" at the October 2015 HackingEdu hackathon.
