@@ -127,10 +127,9 @@ def results():
 	pass
 
 if __name__ == "__main__":
-    app.debug = True
+	connect_to_db(app)
+	PORT = int(os.environ.get("PORT", 5000))
 
+	DEBUG = "NO_DEBUG" not in os.environ
 
-    connect_to_db(app)
-
-
-    app.run()
+	app.run(debug=DEBUG, host="0.0.0.0", port=PORT)
