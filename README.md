@@ -1,8 +1,8 @@
 #Shopping Cart Math
-####Winner of "Most Creative Use of Target APIs" at the October 2015 HackingEdu hackathon.
+######Winner of "Most Creative Use of Target APIs" at the October 2015 HackingEdu hackathon.
 
-###A math game targeted towards children / young students using real prices and products from Target.com
-#### Now deployed on Heroku: [Shopping Cart Math](http://shoppingcartmath.herokuapp.com/)
+A math game targeted towards children / young students using real prices and products from Target.com
+##### Now deployed on Heroku: [Shopping Cart Math](http://shoppingcartmath.herokuapp.com/)
 
 <img src="static/img/app.jpg">
 
