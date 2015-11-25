@@ -35,6 +35,7 @@ function randomSelect(){
 	success   : function (data) {
 		if (typeof success != 'undefined') {
 			success(data);
+			console.log(data);
 
 		}
 			showItems(data.results);
@@ -52,16 +53,18 @@ function randomSelect(){
 function showItems(data) {
 
 	var priceList = [];
+	console.log(data);
+	console.log("showing items");
 
 	$(".items-container").empty();
 
 	for (i=0; i <= LEVEL; i++) {
 
 		var qtyNum = Math.floor((Math.random() * LEVEL) + 1);
-		var imgLink = data[i].document.img_link;
-		var price = data[i].document.price;
-		var name = data[i].document.name;
-		var targetLink = data[i].document.link;
+		var imgLink = data[i].img_link;
+		var price = data[i].price;
+		var name = data[i].name;
+		var targetLink = data[i].link;
 
 		priceList.push(price * qtyNum);
 
